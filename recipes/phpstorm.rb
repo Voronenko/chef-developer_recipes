@@ -39,3 +39,5 @@ template "#{node[:developer_bootstrap][:home_dir]}/Desktop/PhpStorm.desktop" do
      :StartupWMClass => "jetbrains-phpstorm"
   })
 end
+
+include_recipe "java"

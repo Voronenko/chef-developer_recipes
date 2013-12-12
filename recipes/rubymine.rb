@@ -39,3 +39,5 @@ template "#{node[:developer_bootstrap][:home_dir]}/Desktop/RubyMine.desktop" do
      :StartupWMClass => "jetbrains-rubymine"
   })
 end
+
+include_recipe "java"

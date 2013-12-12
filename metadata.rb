@@ -8,3 +8,5 @@ version          "0.0.1"
 %w{ debian ubuntu }.each do |os|
 supports os
 end
+
+depends           "java"
