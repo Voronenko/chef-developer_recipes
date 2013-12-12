@@ -22,3 +22,20 @@ bash "install_phpstorm" do
   EOH
   action :run
 end
+
+
+template "#{node[:developer_bootstrap][:home_dir]}/Desktop/PhpStorm.desktop" do
+  source "desktop.erb"
+  owner node[:user][:name]
+  mode 0777
+  variables({
+     :Name => "PHPStorm",
+     :Exec => node[:developer_bootstrap][:apps_dir]+"/PhpStorm/bin/phpstorm.sh",
+     :Icon => node[:developer_bootstrap][:apps_dir]+"/PhpStorm/bin/webide.png",
+     :Comment => "Develop with PhpStorm!",
+     :Categories => "Development;IDE;",
+     :Terminal => "false",
+     :StartupNotify => "true",
+     :StartupWMClass => "jetbrains-phpstorm"
+  })
+end
