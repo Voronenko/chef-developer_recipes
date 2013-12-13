@@ -1,8 +1,7 @@
 remote_file "#{Chef::Config[:file_cache_path]}/RubyMine.tar.gz" do
   source "http://download.jetbrains.com/ruby/RubyMine-6.0.1.tar.gz"
   owner node[:user][:name]
-  action :create_if_missing
-  notifies :run, "bash[install_phpstorm]", :immediately
+  action :create_if_missing 
 end
 
 directory node[:developer_bootstrap][:apps_dir] do
@@ -11,14 +10,14 @@ directory node[:developer_bootstrap][:apps_dir] do
   action :create
 end
 
-bash "install_phpstorm" do 
+bash "install_rubymine" do 
   cwd "#{Chef::Config[:file_cache_path]}"
   code <<-EOH
-    echo installing PHPStorm from #{Chef::Config[:file_cache_path]}
+    echo installing RubyMine from #{Chef::Config[:file_cache_path]}
     tar -zxf #{Chef::Config[:file_cache_path]}/RubyMine.tar.gz 
     mv #{Chef::Config[:file_cache_path]}/RubyMine*  #{Chef::Config[:file_cache_path]}/RubyMine
     mv #{Chef::Config[:file_cache_path]}/RubyMine #{node[:developer_bootstrap][:apps_dir]}/RubyMine    
-    chown -R #{node[:user][:name]} #{node[:developer_bootstrap][:apps_dir]}/PhpStorm 
+    chown -R #{node[:user][:name]} #{node[:developer_bootstrap][:apps_dir]}/RubyMine 
   EOH
   action :run
 end

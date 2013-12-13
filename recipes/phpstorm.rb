@@ -2,7 +2,6 @@ remote_file "#{Chef::Config[:file_cache_path]}/phpstorm.tar.gz" do
   source "http://download.jetbrains.com/webide/PhpStorm-7.0.tar.gz"
   owner node[:user][:name]
   action :create_if_missing
-  notifies :run, "bash[install_phpstorm]", :immediately
 end
 
 directory node[:developer_bootstrap][:apps_dir] do
