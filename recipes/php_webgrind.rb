@@ -1,5 +1,7 @@
 #credits https://github.com/r8/vagrant-lamp/
 
+include_recipe "apache2"
+
 # Install Webgrind
 git "/var/www/webgrind" do
   repository 'git://github.com/jokkedk/webgrind.git'
@@ -13,7 +15,7 @@ template "#{node[:apache][:dir]}/conf.d/webgrind.conf" do
   group "root"
   mode 0644
   action :create
-  notifies :restart, resources("service[apache2]"), :delayed
+  notifies :restart, "service[apache2]", :delayed
 end
 
 template "/var/www/webgrind/config.php" do

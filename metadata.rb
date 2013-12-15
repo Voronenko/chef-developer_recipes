@@ -12,5 +12,7 @@ end
 depends           "apt"
 depends           "apache2"
 depends           "java"
+depends           "git"
 depends           "mysql"
+depends           "php"
 
