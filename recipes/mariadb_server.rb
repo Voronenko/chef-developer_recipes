@@ -16,3 +16,12 @@ end
 include_recipe "apt::default"
 
 include_recipe "mysql::server"
+
+#Eliminate once ticket https://tickets.opscode.com/browse/COOK-3974 is resolved
+template '/etc/mysql/debian.cnf' do
+  source 'debian.cnf.erb'
+  owner 'root'
+  group 'root'
+  mode '0600'
+end
+
