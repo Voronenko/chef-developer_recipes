@@ -1,3 +1,9 @@
+existingversion = `dpkg -s mariadb-server | grep Version:`
+
+if !existingversion.empty?
+  log "MariaDB already installed: " + existingversion
+  return
+end
 
 apt_repository "mariadb" do
   platform = node['platform']

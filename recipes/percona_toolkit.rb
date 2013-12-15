@@ -1,7 +1,7 @@
 apt_repository "percona" do
   uri "http://repo.percona.com/apt"
   components ["main"]
-  distribution "lucid" #node['lsb']['codename']
+  distribution node['lsb']['codename']
   keyserver "keys.gnupg.net"
   key "1C4CBDCDCD2EFD2A"
 end
