@@ -10,6 +10,7 @@ supports os
 end
 
 depends           "apt"
+depends           "apache2"
 depends           "java"
 depends           "mysql"
 

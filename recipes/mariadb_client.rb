@@ -1,11 +1,10 @@
-include_recipe "mysql::client"
 
 apt_repository "mariadb" do
   platform = node['platform']
-  unless ['debian', 'ubuntu'].include?(platform)
+  unless ['ubuntu'].include?(platform)
     raise "Unsupported platform: #{platform}"
   end
-  uri "http://mirrors.supportex.net/mariadb/repo/#{node[:mariadb][:version]}/#{node[:platform]}"
+  uri "http://mirrors.supportex.net/mariadb/repo/#{node[:mariadb][:version]}/ubuntu"
   distribution node['lsb']['codename']
   components ['main']
   keyserver "keyserver.ubuntu.com"
