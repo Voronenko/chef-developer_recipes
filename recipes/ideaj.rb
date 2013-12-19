@@ -1,5 +1,5 @@
 remote_file "#{Chef::Config[:file_cache_path]}/IdeaJ.tar.gz" do
-  source "http://download.jetbrains.com/idea/ideaIC-13.tar.gz"
+  source "http://download.jetbrains.com/idea/ideaIC-13.0.1.tar.gz"
   owner node[:user][:name]
   action :create_if_missing
 end
@@ -15,7 +15,7 @@ bash "install_idea" do
   code <<-EOH
     echo installing IdeaJ from #{Chef::Config[:file_cache_path]}
     tar -zxf #{Chef::Config[:file_cache_path]}/IdeaJ.tar.gz 
-    mv #{Chef::Config[:file_cache_path]}/ideaIC*  #{Chef::Config[:file_cache_path]}/ideaIC
+    mv #{Chef::Config[:file_cache_path]}/idea-IC*  #{Chef::Config[:file_cache_path]}/ideaIC
     mv #{Chef::Config[:file_cache_path]}/ideaIC #{node[:developer_bootstrap][:apps_dir]}/ideaIC    
     chown -R #{node[:user][:name]} #{node[:developer_bootstrap][:apps_dir]}/ideaIC 
   EOH
