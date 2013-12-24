@@ -30,8 +30,8 @@ end
 bash "setup_share" do 
   cwd "#{Chef::Config[:file_cache_path]}"
   code <<-EOH
-    sudo -u tomcat6 cp -r solr4/dist/* /usr/share/tomcat6-solr/
-    sudo  ln -s /usr/share/tomcat6-solr/solrj-lib/* /usr/share/tomcat6/lib
+    sudo -u tomcat6 cp -r solr4/* /usr/share/tomcat6-solr/
+    sudo  ln -f -s /usr/share/tomcat6-solr/dist/solrj-lib/* /usr/share/tomcat6/lib
   EOH
   action :run
 end
@@ -50,6 +50,14 @@ template "/etc/tomcat6/Catalina/localhost/solr.xml" do
   owner 'tomcat6'
   group 'tomcat6'
 end
+
+template "/opt/solr4/collection1/conf/solrconfig.xml" do
+  source "solrconfig.xml.erb"
+  mode 0644
+  owner 'tomcat6'
+  group 'tomcat6'
+end
+
 
 include_recipe "java"
 include_recipe "tomcat::users"
