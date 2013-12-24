@@ -33,6 +33,33 @@ default[:developer_bootstrap][:apps_dir] = default[:developer_bootstrap][:home_d
 
 ## Recipes ##
 
+###apache_solr4
+Performs default setup of the SOLR 4.6.0;  Reuses tomcat cookbook.
+For best results with chef-solo, override ssl passwords in environment:
+<pre>
+ "override_attributes":{
+      "tomcat" : {
+                   "keystore_password": "devroot",
+                    "truststore_password": "devroot"
+                  }                 
+
+    }
+</pre>
+
+also make sure that you have tomcat_users databag in place so the recipe could configure tomcat users rights.
+Example of the databag item:
+<pre>
+{
+  "id": "root",
+  "password": "devroot",
+  "roles": [
+    "manager",
+    "admin"
+  ]
+}
+</pre>
+
+
 ###default
 gpick - color picker,
 xclip - console operations with clipboard, mc - midnight commander, htop - handy process monitor, nautilus-open-terminal - menu item to open current folder in terminal, rabbitVCS - gui for git/SVN/mercurial
