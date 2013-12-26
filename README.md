@@ -60,14 +60,16 @@ Example of the databag item:
 </pre>
 
 
-###default
-gpick - color picker,
-xclip - console operations with clipboard, mc - midnight commander, htop - handy process monitor, nautilus-open-terminal - menu item to open current folder in terminal, rabbitVCS - gui for git/SVN/mercurial
-
 ###common_schema
 Installs DBA framework Common_Schema 2.2  [http://code.openark.org/blog/mysql/common_schema-2-2-better-queryscript-isolation-tokudb-table_rotate-split-params](http://code.openark.org/blog/mysql/common_schema-2-2-better-queryscript-isolation-tokudb-table_rotate-split-params) , requires MySQL/MariaDB/Percona to be installed.
 
 Check usage options: [http://www.percona.com/live/london-2013/sites/default/files/slides/common_schema-pllondon-2013_0.pdf](http://www.percona.com/live/london-2013/sites/default/files/slides/common_schema-pllondon-2013_0.pdf)
+
+
+###default
+gpick - color picker,
+xclip - console operations with clipboard, mc - midnight commander, htop - handy process monitor, nautilus-open-terminal - menu item to open current folder in terminal, rabbitVCS - gui for git/SVN/mercurial
+
 
 ### googlechrome
 Stable google chrome browser
@@ -155,6 +157,10 @@ watch("^.*\.js$") do |match|
 end
 </pre>
 
+###oracle_virtualbox
+This recipe is intended to use on host computer only. it installs Oracle VirtualBox 4.3 https://www.virtualbox.org/
+In combination with Vagrant this tool can be used for virtual development environments provision.
+
 ###percona_toolkit
 Percona Toolkit for MySQL is a collection of advanced command-line tools used by Percona MySQL Support staff to perform a variety of MySQL server and system tasks that are too difficult or complex to perform manually, including:
 
@@ -200,8 +206,16 @@ GUI for git, subversion, mercurial. Smth like TortoiseSVN/TortoiseGit on windows
 ### rubymine
 Jetbrains IDE for ruby development
 
+### sublime_text
+Evaluation of the handy crossplatform developer friendly editor (beta version of the SublimeText3)
+
 ### teamviewer
 Remote access to your box (non commercial use only)
+
+
+###vagrant
+In combination with VirtualBox this tool can be used for virtual development environments provision.
+See [http://docs.vagrantup.com/v2/why-vagrant/index.html](http://docs.vagrantup.com/v2/why-vagrant/index.html) for more details
 
 ### webmin
 Best web based administration tool for managing your servers without console.
