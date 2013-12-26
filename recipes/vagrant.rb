@@ -7,3 +7,11 @@ dpkg_package "vagrant" do
   source "#{Chef::Config[:file_cache_path]}/vagrant.deb"
   action :install
 end
+
+
+bash "install_vagrant_berkshelf_plugin" do 
+  code <<-EOH
+    vagrant plugin install vagrant-berkshelf
+  EOH
+  action :run
+end
