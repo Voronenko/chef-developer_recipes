@@ -108,6 +108,53 @@ Client packages for mariaDB, note: requires appropriate environment settings:
 ###mariadb_server
 MariaDB server (MySQL compatible) - see notes for **mariadb_client**
 
+###nodejs
+Installs nodejs + set of modules.
+For nodejs in the environment file you have an ability to specify version hints:
+<pre>
+   "nodejs": {
+                  "install_method":"source",
+                  "version":"0.10.24",
+                  "checksum":"610cd733186842cb7f554336d6851a61b2d3d956050d62e49fa359a47640377a",
+                  "checksum_linux_x64":"6ef93f4a5b53cdd4471786dfc488ba9977cb3944285ed233f70c508b50f0cb5f",
+                  "checksum_linux_x86":"fb6487e72d953451d55e28319c446151c1812ed21919168b82ab1664088ecf46",
+                  "dir":"/usr/local",
+                  "npm":"1.3.9",
+                  "src_url":"http://nodejs.org/dist",
+                  "legacy_packages":false
+                }           
+</pre>
+
+NodeJS modules installed with this recipe:
+
+* bower http://bower.io/
+* csslint http://csslint.net/about.html	 	
+* grunt-cli http://gruntjs.com/getting-started
+* less https://github.com/less/less.js ,  http://lesscss.org/
+* yo  http://yeoman.io/
+* supervisor https://github.com/isaacs/node-supervisor
+
+Note: due to npm porting issues to windows systems, supervisor makes useful sense for unixes only
+if you are running nodejs on windows consider another approach
+Dirty example: 
+<pre>
+gem install watchr
+watchr .watchr	
+where .watchr
+
+RUN_COMMAND = "node server.js > server.log"
+KILL_COMMAND = "taskkill /IM node.exe /f"
+ 
+puts "starting server"
+io = IO.popen(RUN_COMMAND)
+ 
+watch("^.*\.js$") do |match|  
+    system KILL_COMMAND
+    puts "restarting server"
+    io = IO.popen(RUN_COMMAND)
+end
+</pre>
+
 ###percona_toolkit
 Percona Toolkit for MySQL is a collection of advanced command-line tools used by Percona MySQL Support staff to perform a variety of MySQL server and system tasks that are too difficult or complex to perform manually, including:
 
