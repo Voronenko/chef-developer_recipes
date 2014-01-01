@@ -9,9 +9,10 @@ dpkg_package "vagrant" do
 end
 
 
-bash "install_vagrant_berkshelf_plugin" do 
+bash "install_useful_vagrant_plugins" do 
   code <<-EOH
     vagrant plugin install vagrant-berkshelf
+    vagrant plugin install vagrant-vbguest
   EOH
   action :run
 end
