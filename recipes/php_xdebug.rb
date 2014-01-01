@@ -1,10 +1,19 @@
-#credits https://github.com/r8/vagrant-lamp/
-
 include_recipe "apache2"
 
 php_pear "xdebug" do
   action :install
+  not_if "sudo pear search xdebug | grep 'no packages found' "
 end
+
+
+
+bash "pecl_callback" do
+  code "sudo pecl install xdebug"
+  only_if "pecl list| grep xdebug && pear list | grep xdebug"  
+end
+  
+
+
 
 template "#{node['php']['ext_conf_dir']}/xdebug.ini" do
   source "xdebug.ini.erb"
