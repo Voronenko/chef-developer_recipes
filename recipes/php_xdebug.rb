@@ -6,14 +6,13 @@ php_pear "xdebug" do
 end
 
 
-
-bash "pecl_callback" do
-  code "sudo pecl install xdebug"
-  only_if "pecl list| grep xdebug && pear list | grep xdebug"  
+bash "pecl_callback" do 
+  code <<-EOH
+    sudo pecl install xdebug
+  EOH
+  action :run
+  only_if "pecl list| grep 'xdebug'"
 end
-  
-
-
 
 template "#{node['php']['ext_conf_dir']}/xdebug.ini" do
   source "xdebug.ini.erb"
