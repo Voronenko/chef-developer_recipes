@@ -11,8 +11,10 @@ bash "pecl_callback" do
     sudo pecl install xdebug
   EOH
   action :run
-  only_if "pecl list| grep 'xdebug'"
+  not_if "echo `pear list|grep 'xdebug';pecl list|grep 'xdebug'` | grep 'xdebug'"
 end
+
+ 
 
 template "#{node['php']['ext_conf_dir']}/xdebug.ini" do
   source "xdebug.ini.erb"
