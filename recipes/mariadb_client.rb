@@ -7,7 +7,7 @@ apt_repository "mariadb" do
   uri "http://mirrors.supportex.net/mariadb/repo/#{node[:mariadb][:version]}/ubuntu"
   distribution node['lsb']['codename']
   components ['main']
-  keyserver "keyserver.ubuntu.com"
+  keyserver "hkp://keyserver.ubuntu.com:80"
   key "0xcbcb082a1bb943db"
   action :add
 end
