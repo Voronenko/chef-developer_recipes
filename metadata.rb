@@ -11,6 +11,7 @@ end
 
 depends           "apt"
 depends           "apache2"
+depends           "build-essential"
 depends           "java"
 depends           "git"
 depends           "mysql"
