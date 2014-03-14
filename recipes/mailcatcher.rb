@@ -1,6 +1,8 @@
 #http://mailcatcher.me/
 #thanks for tool to https://github.com/r8/vagrant-lamp
 
+package "libsqlite3-dev"
+
 gem_package "mailcatcher" do
   options("--no-ri --no-rdoc")
 end

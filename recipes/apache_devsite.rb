@@ -18,6 +18,9 @@ end
 sites.each do |name|
   site = data_bag_item("sites", name)
 
+  puts "creating site:"
+  puts site
+
   # Add site to apache config
   web_app site["host"] do
     template "sites.conf.erb"
