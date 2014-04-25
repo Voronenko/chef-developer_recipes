@@ -173,6 +173,12 @@ Percona Toolkit for MySQL is a collection of advanced command-line tools used by
 
 More: [http://www.percona.com/doc/percona-toolkit/2.2/](http://www.percona.com/doc/percona-toolkit/2.2/)
 
+Note: from time to type you can experience situation, that key server is temporary down. In this case, you can add the key manually:
+<pre>
+wget -q http://www.percona.com/redir/downloads/RPM-GPG-KEY-percona
+gpg --import RPM-GPG-KEY-percona
+</pre>
+
 ### php_webgrind
 Webgrind is a Xdebug profiling web frontend in PHP5. It implements a subset of the features of kcachegrind and installs in seconds and works on all platforms
 

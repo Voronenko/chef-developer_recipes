@@ -14,4 +14,8 @@ package "percona-toolkit" do
   action :install
 end
 
+#Manual fix key not found on a server issue
+# wget -q http://www.percona.com/redir/downloads/RPM-GPG-KEY-percona
+# gpg --import RPM-GPG-KEY-percona
+
 
