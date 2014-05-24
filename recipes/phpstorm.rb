@@ -1,5 +1,5 @@
 remote_file "#{Chef::Config[:file_cache_path]}/phpstorm.tar.gz" do
-  source "http://download.jetbrains.com/webide/PhpStorm-7.0.tar.gz"
+  source "http://download.jetbrains.com/webide/PhpStorm-7.1.3.tar.gz"
   owner node[:user][:name]
   action :create_if_missing
 end
