@@ -16,7 +16,19 @@ template "#{node[:apache][:dir]}/conf.d/webgrind.conf" do
   mode 0644
   action :create
   notifies :restart, "service[apache2]", :delayed
+  not_if { ::File.directory?("#{node['apache']['dir']}/conf-enabled") }  
 end
+
+template "#{node[:apache][:dir]}/conf-enabled/webgrind.conf" do
+  source "webgrind.conf.erb"
+  owner "root"
+  group "root"
+  mode 0644
+  action :create
+  notifies :restart, "service[apache2]", :delayed
+  not_if { ::File.directory?("#{node['apache']['dir']}/conf.d") }  
+end
+
 
 template "/var/www/webgrind/config.php" do
   source "webgrind.config.php.erb"
