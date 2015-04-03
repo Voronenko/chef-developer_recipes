@@ -2,7 +2,7 @@ include_recipe "build-essential"
 include_recipe "nodejs"
 include_recipe "npm"
 
-%w{ grunt-cli bower yo less csslint supervisor gulp karma}.each do |the_package|
+%w{ grunt-cli bower yo less csslint supervisor gulp karma nodemon}.each do |the_package|
   npm_package the_package
 end	
 
